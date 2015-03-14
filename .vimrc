@@ -47,6 +47,7 @@ Plugin 'tpope/vim-classpath'
 Plugin 'tpope/vim-leiningen'
 Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/Specky' 
+Plugin 'plasticboy/vim-markdown'
  
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -163,3 +164,9 @@ let g:flay_on_open=1
 let g:flay_on_save=1
 let g:flay_piet_text="!!"
 
+augroup markdown
+  au BufNewFile,BufReadPost *.md set filetype=markdown
+  let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'rb=ruby', 'sass', 'xml', 'html', 'haml', 'cs']
+  au BufReadPost *.md setlocal spell spelllang=pl
+  au BufReadPost *.md set wrap
+augroup END
