@@ -48,6 +48,7 @@ Plugin 'tpope/vim-leiningen'
 Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/Specky' 
 Plugin 'plasticboy/vim-markdown'
+Plugin 'msanders/snipmate.vim'
  
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

@@ -30,6 +30,7 @@ Plugin 'tomasr/molokai'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'msanders/snipmate.vim'
 
 call vundle#end()
 
