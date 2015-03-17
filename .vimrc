@@ -85,7 +85,7 @@ set timeout
 set ttimeoutlen=10
 set cursorline
 " Remap leader to ,
-let mapleader = ","
+let mapleader = " "
 " Remap tabs keys
 " tab map doesn't work in most terminals - should work fine in gvim
 nnoremap <C-S-tab> :tabprevious<CR>
