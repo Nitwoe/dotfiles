@@ -47,6 +47,7 @@ Plugin 'tpope/vim-classpath'
 Plugin 'tpope/vim-leiningen'
 Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/Specky' 
+Plugin 'digitaltoad/vim-jade'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'msanders/snipmate.vim'
  
