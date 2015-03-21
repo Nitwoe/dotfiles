@@ -75,7 +75,9 @@ autocmd VimEnter * IndentGuidesEnable
 
 set laststatus=2
 
-set wildignore=.git,*.swp,*/tmp/*
+set wildignore=.git,*.swp,*/tmp/*,*.meta
+let NERDTreeIgnore=['\.meta$', '\~$']
+
 colorscheme jellybeans
 set background=dark
 let g:airline_powerline_fonts=1
