@@ -50,6 +50,7 @@ Plugin 'vim-scripts/Specky'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'msanders/snipmate.vim'
+Plugin 'craigemery/vim-autotag'
  
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -85,6 +86,7 @@ set notimeout
 set timeout
 set ttimeoutlen=10
 set cursorline
+
 " Remap leader to ,
 let mapleader = " "
 " Remap tabs keys
@@ -122,7 +124,6 @@ if &term =~ '^screen'
 endif
  
 " Plugins
- 
  
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
