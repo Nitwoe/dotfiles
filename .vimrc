@@ -51,6 +51,9 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'msanders/snipmate.vim'
 Plugin 'craigemery/vim-autotag'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'noprompt/vim-yardoc'
+Plugin 'janko-m/vim-test'
  
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -113,6 +116,7 @@ set ts=2 sw=2 et
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 autocmd VimEnter * IndentGuidesEnable
+let g:typescript_indent_disable =1
  
 " Shift + CTRL + arrows mods
 if &term =~ '^screen'
@@ -130,7 +134,6 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 call unite#custom#source('file_rec/async','sorters','sorter_rank')
 
 " Syntastic conf
-let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['jsl']
 
 set statusline+=%#warningmsg#
@@ -140,7 +143,7 @@ set statusline+=%*
 let g:syntastic_enable_signs = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_error_symbol = "✗"
  
@@ -187,4 +190,16 @@ augroup markdown
   let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'rb=ruby', 'sass', 'xml', 'html', 'haml', 'cs']
   au BufReadPost *.md setlocal spell spelllang=pl
   au BufReadPost *.md set wrap
+augroup END
+
+augroup typescript
+  autocmd QuickFixCmdPost [^l]* nested cwindow
+  autocmd QuickFixCmdPost    l* nested lwindow
+augroup END
+
+augroup ruby
+  autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+  autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+  autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+  autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 augroup END
