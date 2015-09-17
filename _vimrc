@@ -31,6 +31,9 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'msanders/snipmate.vim'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
+Plugin 'amix/vim-zenroom2'
 
 call vundle#end()
 
@@ -222,10 +225,32 @@ winsize 999 999
 
 augroup markdown
   au BufNewFile,BufReadPost *.md set filetype=markdown
-  let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'rb=ruby', 'sass', 'xml', 'html', 'haml', 'cs']
+  let g:markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'rb=ruby', 'sass', 'xml', 'html', 'haml', 'cs']
   au BufReadPost *.md setlocal spell spelllang=pl
   au BufReadPost *.md set wrap
 augroup END
 
 au BufReadPost *.cs set ts=4 sw=4 et
 au BufReadPost *.cs let g:indent_guides_start_level=2
+
+nnoremap <leader>ze :Goyo 80x90%<cr>
+nnoremap <leader>zq :Goyo!<cr>
+
+function! s:goyo_enter()
+  set noshowmode
+  set noshowcmd
+  Limelight
+  set scrolloff=999
+  colorscheme jellybeans
+  set background=dark
+endfunction
+
+function! s:goyo_leave()
+  set showmode
+  set showcmd
+  set scrolloff=0
+  Limelight!
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
