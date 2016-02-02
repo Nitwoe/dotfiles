@@ -90,6 +90,8 @@ set timeout
 set ttimeoutlen=10
 set cursorline
 
+set lazyredraw
+
 " Remap leader to ,
 let mapleader = " "
 " Remap tabs keys
@@ -127,6 +129,8 @@ if &term =~ '^screen'
     execute "set <xLeft>=\e[1;*D"
 endif
  
+set ttymouse=xterm2
+
 " Plugins
  
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
