@@ -56,7 +56,8 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'noprompt/vim-yardoc'
 Plugin 'janko-m/vim-test'
 Plugin 'amperser/proselint', {'rtp': 'plugins/vim/syntastic_proselint'}
-
+Plugin 'beloglazov/vim-online-thesaurus'
+ 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -199,8 +200,10 @@ let g:jsx_ext_required = 0
 augroup markdown
   au BufNewFile,BufReadPost *.md set filetype=markdown
   let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'rb=ruby', 'sass', 'xml', 'html', 'haml', 'cs']
-  au BufReadPost *.md setlocal spell spelllang=pl
+  au BufReadPost *.md setlocal spell spelllang=en
   au BufReadPost *.md set wrap
+  let g:online_thesaurus_keys = 0
+  nnoremap <leader>ck :OnlineThesaurusCurrentWord<CR>
 augroup END
 
 augroup typescript
