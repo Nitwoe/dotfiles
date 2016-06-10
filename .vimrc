@@ -45,7 +45,8 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-classpath'
 Plugin 'tpope/vim-leiningen'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/Specky' 
 Plugin 'digitaltoad/vim-jade'
 Plugin 'plasticboy/vim-markdown'
@@ -54,7 +55,8 @@ Plugin 'craigemery/vim-autotag'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'noprompt/vim-yardoc'
 Plugin 'janko-m/vim-test'
- 
+Plugin 'amperser/proselint', {'rtp': 'plugins/vim/syntastic_proselint'}
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -139,6 +141,9 @@ call unite#custom#source('file_rec/async','sorters','sorter_rank')
 
 " Syntastic conf
 let g:syntastic_javascript_checkers = ['jsl']
+let g:syntastic_markdown_checkers = ['proselint']
+let g:syntastic_sass_check_partials = 0
+let g:syntastic_sass_checkers=['']
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatusLineFlag()}
@@ -189,6 +194,8 @@ let g:flay_on_open=1
 let g:flay_on_save=1
 let g:flay_piet_text="!!"
 
+let g:jsx_ext_required = 0
+
 augroup markdown
   au BufNewFile,BufReadPost *.md set filetype=markdown
   let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'rb=ruby', 'sass', 'xml', 'html', 'haml', 'cs']
@@ -206,4 +213,6 @@ augroup ruby
   autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
   autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
   autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+  autocmd FileType ruby,eruby nnoremap <leader>tf :TestFile<cr>
+  autocmd FileType ruby,eruby nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
 augroup END
