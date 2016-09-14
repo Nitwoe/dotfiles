@@ -37,7 +37,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'AndrewRadev/inline_edit.vim'
 Plugin 'chrisbra/csv.vim'
 Plugin 'regedarek/ZoomWin'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
@@ -57,6 +57,8 @@ Plugin 'noprompt/vim-yardoc'
 Plugin 'janko-m/vim-test'
 Plugin 'amperser/proselint', {'rtp': 'plugins/vim/syntastic_proselint'}
 Plugin 'beloglazov/vim-online-thesaurus'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-repeat'
  
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -78,6 +80,7 @@ set backspace=2
 filetype indent on
 set autoindent
 set number
+set relativenumber
 set nobackup
 set tabstop=2
 set shiftwidth=2
@@ -102,9 +105,6 @@ let mapleader = " "
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab>   :tabnext<CR>
 nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-tab> <Esc>:tabprevious<CR>i
-inoremap <C-tab>   <Esc>:tabnext<CR>i
-inoremap <C-t>     <Esc>:tabnew<CR>
 " Unite vim remap
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
