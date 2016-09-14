@@ -29,7 +29,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
-Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'vim-indent-guides'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'airblade/vim-gitgutter'
@@ -121,7 +121,6 @@ set ts=2 sw=2 et
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 autocmd VimEnter * IndentGuidesEnable
-let g:typescript_indent_disable =1
  
 " Shift + CTRL + arrows mods
 if &term =~ '^screen'
@@ -155,6 +154,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '✗'
 let g:syntastic_error_symbol = "✗"
  
 set laststatus=2
